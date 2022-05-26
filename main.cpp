@@ -13,7 +13,7 @@ int main() {
     Json config (load("../config.json"));
     struct addrinfo hints {AI_PASSIVE, AF_UNSPEC, SOCK_STREAM};
     struct addrinfo * smtp_server_info;
-    int status;
+    int status; // get addrinfo status code 0 = ok !0 = error
     if ((status = getaddrinfo(
             config["SmtpAddress"].get_string().c_str(),
             config["Port"].get_string().c_str(),
